@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>validar formulario</title>
+</head>
+<body>
+    <form id="valiando-formulario">
+        <input id="email" type="text" placeholder="Email">
+        <input id="password" type="password" placeholder="senha">
+        <button onclick="validar()">Enviar</button>
+        <div id="erro"></div>
+    </form>
+
+    <script>
+        function validar() {
+            let email = document.getElementById("email").value;
+            let senha = document.getElementById("password").value;
+            let erro = document.getElementById("erro");
+
+            erro.innerHTML = "";
+
+            if (email.trim() === "" || senha.trim() === "") {
+                erro.innerHTML = "Todos os campos são obrigatórios!";
+                return;
+            }
+
+            if (!email.includes("@")){
+                erro.innerHTML = "email invalida!";
+                return;
+            }
+
+            if (senha.length() <8){
+                erro.innerHTML = "senha invalida!";
+                return;
+            }
+        }
+    </script>
+</body>
+</html>
